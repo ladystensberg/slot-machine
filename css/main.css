@@ -1,0 +1,75 @@
+main {
+    margin: 0 auto;
+    width: 1000px;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px ;
+    grid-template-rows: 80px 100px 100px 100px 80px ;
+    grid-template-areas: "header header header header"
+                         "slotContain slotContain slotContain addFunds"
+                         "slotContain slotContain slotContain cashOut"
+                         "slotContain slotContain slotContain spinSlots"
+                         "footer footer footer footer"
+}
+
+header {
+    grid-area: header;
+    background-color: grey;
+}
+
+/* header, footer {
+    background-color: grey;
+} */
+
+#slotContainer {
+    background-color: orange;
+    grid-area: slotContain;
+    display: grid;
+    grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 300px;
+    grid-template-areas: "slot1 slot2 slot3";
+}
+
+#slot1 {
+    grid-area: slot1;
+
+}
+
+#slot2 {
+    grid-area: slot2;
+}
+
+#slot3 {
+    grid-area: slot3;
+}
+
+#slot4 {
+    grid-area: slot4;
+}
+
+#addFunds {
+    grid-area: addFunds;
+}
+
+#cashOut {
+    grid-area: cashOut;
+}
+
+#spinSlots {
+    grid-area: spinSlots;
+}
+
+footer {
+    grid-area: footer;
+    background-color: grey;
+}
+
+.sideButtons  {
+    border: 10px solid green;
+    text-align: center;
+    padding: 50px;
+}
+
+.slots {
+    background-color: white;
+    border: 2px solid goldenrod;
+}
