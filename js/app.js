@@ -20,6 +20,9 @@ var cashOutButton = document.getElementById("cashOut");
 var spinSlotsButton = document.getElementById("spinSlots");
 var totalCreditsMsg = document.querySelector("#totalCreditMsg");
 var lastWinCreditMsg = document.querySelector("#lastSpinWinMsg");
+var slot1 = document.getElementById("slot1");
+var slot2 = document.getElementById("slot2");
+var slot3 = document.getElementById("slot3");
 
 /*----- event listeners -----*/
 
@@ -35,12 +38,12 @@ function initGame() {
     lastWinSpinAmt = 0;
 
     symbols = {
-        cherries: "img/cherries.svg",
-        seven: "img/seven.svg",
-        crown: "img/crown.svg",
-        bell: "img/bell.svg",
-        bars: "img/bars.svg",
-        diamond: "img/diamond.svg"
+        cherries: "cherries.svg",
+        seven: "seven.svg",
+        crown: "crown.svg",
+        bell: "bell.svg",
+        bars: "bars.svg",
+        diamond: "diamond.svg"
     }
 }
 
