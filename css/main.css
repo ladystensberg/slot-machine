@@ -12,11 +12,22 @@ h1 {
     font-size: 40pt;
 }
 
+.jackpot {
+    animation: blink 1s linear infinite;
+}
+
+@keyframes blink {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
+}
+
 main {
+    margin-left: 10px;
     width: 1000px;
     display: grid;
     grid-template-columns: 200px 200px 200px 200px ;
-    grid-template-rows: 450px 100px 100px 100px 80px ;
+    grid-template-rows: 458px 100px 100px 100px 80px ;
     grid-template-areas: "header header header header"
                          "slotContain slotContain slotContain addFunds"
                          "slotContain slotContain slotContain cashOut"
@@ -58,17 +69,17 @@ header {
 
 #addFunds {
     grid-area: addFunds;
-    background: url("../img/coin.svg")  no-repeat center;
+    /* background: url("../img/coin.svg")  no-repeat center; */
 }
 
 #cashOut {
     grid-area: cashOut;
-    background: url("../img/cash-stack.svg") no-repeat center;
+    /* background: url("../img/cash-stack.svg") no-repeat center; */
 }
 
 #spinSlots {
     grid-area: spinSlots;
-    background: url("../img/slot-machine.svg") no-repeat center;
+    /* background: url("../img/slot-machine.svg") no-repeat center; */
 }
 
 footer {
@@ -94,6 +105,18 @@ footer > p > span {
     text-align: center;
     padding: 10px;
     border-radius: 5px;
+    border: 2px solid gold;
+}
+
+.sideButtons > img {
+    height: 75%;
+}
+
+.sideButtons > p {
+    margin: -10px auto;
+    font-size: 20pt;
+    font-weight: bold;
+    color: white;
 }
 
 .sideButtons:hover {
@@ -113,5 +136,4 @@ footer > p > span {
 
 .disabled {
     cursor: not-allowed;
-    background-color: rgba(192, 192, 192, .5);
 }

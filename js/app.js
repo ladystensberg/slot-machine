@@ -16,6 +16,7 @@ var spinCombos = [];
 
 /*----- cached element references -----*/
 
+var jackpotMsg = document.getElementById("headline");
 var addFundsButton = document.getElementById("addFunds");
 var cashOutButton = document.getElementById("cashOut");
 var spinSlotsButton = document.getElementById("spinSlots");
@@ -72,18 +73,20 @@ function spinSlots() {
 // try doing win logic checkForWin(pos, symbol).
 
 function checkForWin() {
+    jackpotMsg.classList.remove("jackpot");
     let symbol1 = slot1.firstChild.id;
     let symbol2 = slot2.firstChild.id;
     let symbol3 = slot3.firstChild.id;
     credits.totalCredits -= SPIN_COST;
     credits.totalLoss += SPIN_COST;
     if (symbol1 === symbol2 && symbol2 === symbol3) {
-        var symbolToCheck = symbol1;
+        var symbolToCheck = symbol3;
         switch(symbolToCheck) {
             case "seven":
                 credits.totalWin += 3000;
                 credits.lastSpinWin = 3000;
                 credits.totalCredits += 3000;
+                jackpotMsg.classList.add("jackpot");
                 break;
             case "crown":
                 credits.totalWin += 400;
