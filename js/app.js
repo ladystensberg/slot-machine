@@ -33,6 +33,21 @@ spinSlotsButton.addEventListener("click", spinSlots);
 /*----- functions -----*/
 
 function spinSlots() {
+
+    for (var i = 0; i < 3; i++) {
+        var options = Object.keys(symbols);
+        var rand = Math.floor(Math.random() * options.length);
+        updateSlotsView(options[rand], i+1);
+    }
+}
+
+function updateSlotsView(symbol, slot) {
+
+    slot = "slot" + slot;
+    var newSlot = document.getElementById(slot);
+    var image = document.createElement('img');
+    image.src = symbols[symbol];
+    newSlot.appendChild(image);
     
 }
 
@@ -59,12 +74,12 @@ function initGame() {
     }
 
     symbols = {
-        cherries: "cherries.svg",
-        seven: "seven.svg",
-        crown: "crown.svg",
-        bell: "bell.svg",
-        bars: "bars.svg",
-        diamond: "diamond.svg"
+        cherries: "img/cherries.svg",
+        seven: "img/seven.svg",
+        crown: "img/crown.svg",
+        bell: "img/bell.svg",
+        bars: "img/bars.svg",
+        diamond: "img/diamond.svg"
     }
 }
 
