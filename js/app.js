@@ -28,10 +28,22 @@ var slotsContainer = document.getElementById("slotContainer");
 /*----- event listeners -----*/
 
 addFundsButton.addEventListener("click", addFunds);
-cashOutButton.addEventListener("click", cashOut);
-spinSlotsButton.addEventListener("click", spinSlots);
 
 /*----- functions -----*/
+
+function checkForFunds() {
+    if (credits.totalCredits < 3) {
+        cashOutButton.removeEventListener("click", cashOut);
+        spinSlotsButton.removeEventListener("click", spinSlots); 
+        cashOutButton.classList.add("disabled");
+        spinSlotsButton.classList.add("disabled");
+    } else {
+        cashOutButton.addEventListener("click", cashOut);
+        spinSlotsButton.addEventListener("click", spinSlots);  
+        cashOutButton.classList.remove("disabled");
+        spinSlotsButton.classList.remove("disabled");
+    }
+}
 
 function displayMsgs() {
     var totalCreds = credits.totalCredits;
@@ -54,6 +66,7 @@ function spinSlots() {
 }
 
 function addSlotsImgs(symbol, slot) {
+    
     slot = "slot" + slot;
     var newSlot = document.getElementById(slot);
     var image = document.createElement('img');
@@ -74,6 +87,7 @@ function removeSlotsImgs() {
 function addFunds() {
     var funds = prompt("How many credits do you want to add?");
     credits.totalCredits = parseInt(funds);
+    checkForFunds();
     displayMsgs();
 }
 
@@ -105,10 +119,13 @@ function initGame() {
         diamond: "img/diamond.svg"
     }
 
+    checkForFunds();
     displayMsgs();
 }
 
 initGame();
+
+
 
 // possible win combos:
     // 7 is wild > it can take the place of any other symbol
