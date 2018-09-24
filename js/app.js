@@ -69,14 +69,55 @@ function spinSlots() {
 }
 
 function checkForWin() {
-    for (let child of slotsContainer.children) {
-        for (let slotChild of child.children) {
-            if (slotChild.id[0] === slotChild.id[1] && slotChild.id[1] === slotChild.id[2]) {
-                // console.log("WIN");
-            } else {
-                // console.log("LOSE");
-            }
+    let symbol1 = slot1.firstChild.id;
+    let symbol2 = slot2.firstChild.id;
+    let symbol3 = slot3.firstChild.id;
+    credits.totalCredits -= SPIN_COST;
+    credits.totalLoss += SPIN_COST;
+    if (symbol1 === symbol2 && symbol2 === symbol3) {
+        var symbolToCheck = symbol1;
+        switch(symbolToCheck) {
+            case "seven":
+                credits.totalWin += 3000;
+                credits.lastSpinWin = 3000;
+                credits.totalCredits += 3000;
+                break;
+            case "crown":
+                credits.totalWin += 400;
+                credits.lastSpinWin = 400;
+                credits.totalCredits += 400;
+                break;
+            case "diamond":
+                credits.totalWin += 300;
+                credits.lastSpinWin = 300;
+                credits.totalCredits += 300
+                break;
+            case "bell":
+                credits.totalWin += 200;
+                credits.lastSpinWin = 200;
+                credits.totalCredits += 200;
+                break;
+            case "bars":
+                credits.totalWin += 50;
+                credits.lastSpinWin = 50;
+                credits.totalCredits += 50;
+                break;
+            case "cherries":
+                credits.totalWin += 5;
+                credits.lastSpinWin = 5;
+                credits.totalCredits += 5;
+                break;
         }
+    } else if (symbol1 === "cherries" && symbol2 === "cherries" || 
+               symbol2 === "cherries" && symbol3 === "cherries" ||
+               symbol1 === "cherries" && symbol3 === "cherries") {
+        credits.totalWin += 2;
+        credits.lastSpinWin = 2;
+        credits.totalCredits += 2;
+    } else if (symbol1 === "cherries" || symbol2 === "cherries" || symbol3 === "cherries"){
+        credits.totalWin += 1;
+        credits.lastSpinWin = 1;
+        credits.totalCredits += 1;
     }
 }
 
@@ -142,14 +183,3 @@ initGame();
 
 
 
-// possible win combos:
-    // 7 is wild > it can take the place of any other symbol
-        // and help form another win combo
-    // 7X3 = jackpot - 3000 credits
-    // crownX3 = 400 credits
-    // diamondX3 = 300 credits
-    // bellsX3 = 200 credits
-    // barX3 = 50 credits
-    // cherriesX3 = 5 credits
-    // 1 cherry = 1 credit
-    // 2 cherries = 2 credits
