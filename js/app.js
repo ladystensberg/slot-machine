@@ -26,9 +26,27 @@ var slot3 = document.getElementById("slot3");
 
 /*----- event listeners -----*/
 
-
+addFundsButton.addEventListener("click", addFunds);
+cashOutButton.addEventListener("click", cashOut);
+spinSlotsButton.addEventListener("click", spinSlots);
 
 /*----- functions -----*/
+
+function spinSlots() {
+    
+}
+
+function addFunds() {
+    var funds = prompt("How many credits do you want to add?");
+    credits.totalCredits = parseInt(funds);
+}
+
+function cashOut() {
+    var receipt = alert(`You won ${credits.totalWin}. 
+    You lost ${credits.totalLoss}. Your cash-out amount is ${credits.totalCredits}`);
+}
+
+
 
 function initGame() {
 
@@ -49,6 +67,8 @@ function initGame() {
         diamond: "diamond.svg"
     }
 }
+
+initGame();
 
 // possible win combos:
     // 7 is wild > it can take the place of any other symbol
