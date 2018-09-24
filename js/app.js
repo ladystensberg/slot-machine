@@ -24,6 +24,7 @@ var slot1 = document.getElementById("slot1");
 var slot2 = document.getElementById("slot2");
 var slot3 = document.getElementById("slot3");
 var slotsContainer = document.getElementById("slotContainer");
+var images = slotsContainer.getElementsByTagName('img');
 
 /*----- event listeners -----*/
 
@@ -54,8 +55,9 @@ function displayMsgs() {
 }
 
 function spinSlots() {
-
+    
     removeSlotsImgs();
+
     for (var i = 0; i < 3; i++) {
         var options = Object.keys(symbols);
         var rand = Math.floor(Math.random() * options.length);
@@ -87,16 +89,12 @@ function addSlotsImgs(symbol, slot) {
     newSlot.appendChild(image);
 }
 
-function removeSlotsImgs() { //FIXME issue with removing all images
-    var images = slotsContainer.getElementsByTagName('img');
-    console.log(images);
+function removeSlotsImgs() {
     for (let i = 0; i < images.length; i++) {
-        images[i].remove();
+        slot1.removeChild(images[i]);
+        slot2.removeChild(images[i]);
+        slot3.removeChild(images[i]);
     }
-    // for (let image of images) {
-    //         image.src = "";
-    //         image.id = "";
-    // }
 }
 
 function addFunds() {
@@ -115,7 +113,9 @@ function cashOut() {
 
 function initGame() {
 
-    removeSlotsImgs();
+    if (images.length > 0) {
+        removeSlotsImgs();
+    }
 
     credits = {
         totalWin: 0,
