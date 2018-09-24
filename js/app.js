@@ -62,17 +62,25 @@ function spinSlots() {
         addSlotsImgs(options[rand], i+1);
     }
 
+    checkForWin();
     displayMsgs();
 }
 
+function checkForWin() {
+    for (let child of slotsContainer.children) {
+        for (let slotChild of child.children) {
+            console.log(slotChild);
+        }
+    }
+}
+
 function addSlotsImgs(symbol, slot) {
-    
     slot = "slot" + slot;
     var newSlot = document.getElementById(slot);
     var image = document.createElement('img');
     image.src = symbols[symbol];
+    image.id = symbol;
     newSlot.appendChild(image);
-    
 }
 
 function removeSlotsImgs() {
@@ -80,6 +88,7 @@ function removeSlotsImgs() {
     if (images.length > 0) {
        for (let image of images) {
             image.src = "";
+            // image.parentNode.removeChild(image)
         }
     }
 }
