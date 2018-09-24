@@ -4,11 +4,11 @@ const SPIN_COST = 3;
 
 /*----- app's state (variables) -----*/
 
-var currentSpinWinAmt;
+var totalWin;
+var totalLoss;
+var lastSpinWin;
+var currentSpinWin;
 var totalCredits;
-var totalWinCredits;
-var totalLossCredits;
-var lastWinSpinAmt;
 
 var symbols;
 var winningCombos;
@@ -31,11 +31,14 @@ var slot3 = document.getElementById("slot3");
 /*----- functions -----*/
 
 function initGame() {
-    currentSpinWinAmt = 0;
-    totalCredits = 0;
-    totalWinCredits = 0;
-    totalLossCredits = 0;
-    lastWinSpinAmt = 0;
+
+    credits = {
+        totalWin: 0,
+        totalLoss: 0,
+        lastSpinWin: 0,
+        currentSpinWin: 0,
+        totalCredits: 0
+    }
 
     symbols = {
         cherries: "cherries.svg",
@@ -46,7 +49,6 @@ function initGame() {
         diamond: "diamond.svg"
     }
 }
-
 
 // possible win combos:
     // 7 is wild > it can take the place of any other symbol
