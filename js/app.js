@@ -99,7 +99,7 @@ function removeSlotsImgs() {
 
 function addFunds() {
     var funds = prompt("How many credits do you want to add?");
-    credits.totalCredits = parseInt(funds);
+    credits.totalCredits += parseInt(funds);
     checkForFunds();
     displayMsgs();
 }
