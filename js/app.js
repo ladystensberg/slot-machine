@@ -18,7 +18,7 @@ var winningCombos;
 var addFundsButton = document.getElementById("addFunds");
 var cashOutButton = document.getElementById("cashOut");
 var spinSlotsButton = document.getElementById("spinSlots");
-var totalCreditsMsg = document.querySelector("#totalCreditMsg");
+var totalCreditsMsg = document.querySelector("#totalCreditsMsg");
 var lastWinCreditMsg = document.querySelector("#lastSpinWinMsg");
 var slot1 = document.getElementById("slot1");
 var slot2 = document.getElementById("slot2");
@@ -33,6 +33,14 @@ spinSlotsButton.addEventListener("click", spinSlots);
 
 /*----- functions -----*/
 
+function displayMsgs() {
+    var totalCreds = credits.totalCredits;
+    totalCreditsMsg.textContent = totalCreds;
+    
+    var lastWinCreds = credits.lastSpinWin;
+    lastWinCreditMsg.textContent = lastWinCreds;
+}
+
 function spinSlots() {
 
     removeSlotsImgs();
@@ -41,6 +49,8 @@ function spinSlots() {
         var rand = Math.floor(Math.random() * options.length);
         addSlotsImgs(options[rand], i+1);
     }
+
+    displayMsgs();
 }
 
 function addSlotsImgs(symbol, slot) {
@@ -64,16 +74,19 @@ function removeSlotsImgs() {
 function addFunds() {
     var funds = prompt("How many credits do you want to add?");
     credits.totalCredits = parseInt(funds);
+    displayMsgs();
 }
 
 function cashOut() {
     var receipt = alert(`You won ${credits.totalWin}. 
     You lost ${credits.totalLoss}. Your cash-out amount is ${credits.totalCredits}`);
+    initGame();
 }
 
 
-
 function initGame() {
+
+    removeSlotsImgs();
 
     credits = {
         totalWin: 0,
@@ -91,6 +104,8 @@ function initGame() {
         bars: "img/bars.svg",
         diamond: "img/diamond.svg"
     }
+
+    displayMsgs();
 }
 
 initGame();
