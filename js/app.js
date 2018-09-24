@@ -111,12 +111,12 @@ function initGame() {
     }
 
     symbols = {
-        cherries: "img/cherries.svg",
-        seven: "img/seven.svg",
-        crown: "img/crown.svg",
-        bell: "img/bell.svg",
-        bars: "img/bars.svg",
-        diamond: "img/diamond.svg"
+        cherries: "img/symbols/cherries.svg",
+        seven: "img/symbols/seven.svg",
+        crown: "img/symbols/crown.svg",
+        bell: "img/symbols/bell.svg",
+        bars: "img/symbols/bars.svg",
+        diamond: "img/symbols/diamond.svg"
     }
 
     checkForFunds();
