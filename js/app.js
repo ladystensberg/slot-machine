@@ -35,15 +35,15 @@ spinSlotsButton.addEventListener("click", spinSlots);
 
 function spinSlots() {
 
-    removeSlots();
+    removeSlotsImgs();
     for (var i = 0; i < 3; i++) {
         var options = Object.keys(symbols);
         var rand = Math.floor(Math.random() * options.length);
-        updateSlotsView(options[rand], i+1);
+        addSlotsImgs(options[rand], i+1);
     }
 }
 
-function updateSlotsView(symbol, slot) {
+function addSlotsImgs(symbol, slot) {
     slot = "slot" + slot;
     var newSlot = document.getElementById(slot);
     var image = document.createElement('img');
@@ -52,7 +52,7 @@ function updateSlotsView(symbol, slot) {
     
 }
 
-function removeSlots() {
+function removeSlotsImgs() {
     var images = document.getElementsByTagName('img');
     if (images.length > 0) {
        for (let image of images) {
