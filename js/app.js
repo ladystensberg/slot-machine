@@ -12,6 +12,7 @@ var totalCredits;
 
 var symbols;
 var winningCombos;
+var spinCombos = [];
 
 /*----- cached element references -----*/
 
@@ -55,18 +56,20 @@ function displayMsgs() {
 }
 
 function spinSlots() {
-    
+    spinCombos = [];
     removeSlotsImgs();
-
     for (var i = 0; i < 3; i++) {
         var options = Object.keys(symbols);
         var rand = Math.floor(Math.random() * options.length);
         addSlotsImgs(options[rand], i+1);
     }
-
     checkForWin();
     displayMsgs();
 }
+
+// add win logic for 7s being wild if combined with 2 of the same symbol.
+// add win logic for 2 symbols next to each other giving 1/2 credit
+// try doing win logic checkForWin(pos, symbol).
 
 function checkForWin() {
     let symbol1 = slot1.firstChild.id;
@@ -127,6 +130,7 @@ function addSlotsImgs(symbol, slot) {
     var image = document.createElement('img');
     image.src = symbols[symbol];
     image.id = symbol;
+    spinCombos.push(symbol);
     newSlot.appendChild(image);
 }
 
