@@ -69,7 +69,11 @@ function spinSlots() {
 function checkForWin() {
     for (let child of slotsContainer.children) {
         for (let slotChild of child.children) {
-            console.log(slotChild);
+            if (slotChild.id[0] === slotChild.id[1] && slotChild.id[1] === slotChild.id[2]) {
+                // console.log("WIN");
+            } else {
+                // console.log("LOSE");
+            }
         }
     }
 }
@@ -83,14 +87,16 @@ function addSlotsImgs(symbol, slot) {
     newSlot.appendChild(image);
 }
 
-function removeSlotsImgs() {
-    var images = document.getElementsByTagName('img');
-    if (images.length > 0) {
-       for (let image of images) {
-            image.src = "";
-            // image.parentNode.removeChild(image)
-        }
+function removeSlotsImgs() { //FIXME issue with removing all images
+    var images = slotsContainer.getElementsByTagName('img');
+    console.log(images);
+    for (let i = 0; i < images.length; i++) {
+        images[i].remove();
     }
+    // for (let image of images) {
+    //         image.src = "";
+    //         image.id = "";
+    // }
 }
 
 function addFunds() {
