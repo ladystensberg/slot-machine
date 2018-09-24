@@ -23,6 +23,7 @@ var lastWinCreditMsg = document.querySelector("#lastSpinWinMsg");
 var slot1 = document.getElementById("slot1");
 var slot2 = document.getElementById("slot2");
 var slot3 = document.getElementById("slot3");
+var slotsContainer = document.getElementById("slotContainer");
 
 /*----- event listeners -----*/
 
@@ -34,6 +35,7 @@ spinSlotsButton.addEventListener("click", spinSlots);
 
 function spinSlots() {
 
+    removeSlots();
     for (var i = 0; i < 3; i++) {
         var options = Object.keys(symbols);
         var rand = Math.floor(Math.random() * options.length);
@@ -42,13 +44,21 @@ function spinSlots() {
 }
 
 function updateSlotsView(symbol, slot) {
-
     slot = "slot" + slot;
     var newSlot = document.getElementById(slot);
     var image = document.createElement('img');
     image.src = symbols[symbol];
     newSlot.appendChild(image);
     
+}
+
+function removeSlots() {
+    var images = document.getElementsByTagName('img');
+    if (images.length > 0) {
+       for (let image of images) {
+            image.src = "";
+        }
+    }
 }
 
 function addFunds() {
