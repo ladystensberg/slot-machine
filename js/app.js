@@ -146,6 +146,8 @@ function removeSlotsImgs() {
 }
 
 function addFunds() {
+    // let elem = document.getElementById("fundsSlideOut");
+    // elem.classList.toggle("show");
     var funds = prompt("How many credits do you want to add?");
     credits.totalCredits += parseInt(funds);
     checkForFunds();
@@ -170,7 +172,7 @@ function initGame() {
         totalLoss: 0,
         lastSpinWin: 0,
         currentSpinWin: 0,
-        totalCredits: 0
+        totalCredits: 500 //change this to zero before deploying!!
     }
 
     symbols = {
