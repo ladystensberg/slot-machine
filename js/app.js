@@ -25,8 +25,8 @@ var lastWinCreditMsg = document.querySelector("#lastSpinWinMsg");
 var slot1 = document.getElementById("slot1");
 var slot2 = document.getElementById("slot2");
 var slot3 = document.getElementById("slot3");
-var slotsContainer = document.getElementById("slotContainer");
-var images = slotsContainer.getElementsByTagName('img');
+var slotContainer = document.getElementById("slotContainer");
+var images = slotContainer.getElementsByTagName('img');
 
 /*----- event listeners -----*/
 
@@ -64,13 +64,60 @@ function spinSlots() {
         var rand = Math.floor(Math.random() * options.length);
         addSlotsImgs(options[rand], i+1);
     }
-    checkForWin();
+    checkForWin2();
     displayMsgs();
 }
 
 // add win logic for 7s being wild if combined with 2 of the same symbol.
 // add win logic for 2 symbols next to each other giving 1/2 credit
 // try doing win logic checkForWin(pos, symbol).
+
+function checkForWin2() {
+    var allThree = false;
+    var twoSevens = false;
+    var oneCherry = false;
+    var TwoCherries = false;
+    var firstSlot = slotContainer.firstElementChild;
+    var secondSlot = slotContainer.firstElementChild.nextElementSibling;
+    var thirdSlot = slotContainer.lastElementChild;
+
+    var firstSlotImage = firstSlot.firstElementChild.id;
+    var secondSlotImage = secondSlot.firstElementChild.id;
+    var thirdSlotImage = thirdSlot.firstElementChild.id;
+
+    if (firstSlotImage === secondSlotImage && secondSlotImage === thirdSlotImage) {
+        allThree = true;
+        let symbol = thirdSlotImage;
+        allThreeWin(symbol);
+    }
+
+    // for (var i = 0; i < slots.length; i++) {
+    //     if (slots[i].firstChild.id === "cherries") {
+    //         console.log("cherries");
+    //     }
+    // }
+    // if (slotContainer.lastChild.id === (slotContainer.lastChild.previousElementSibling.id && child.firstChild.id)) {
+    //     allThree = true;
+    // } else if ((child.firstChild.id && child.nextElementSibling.id) === "seven") {
+    //     twoSevens = true;
+    // } else if ((child.lastChild.id || child.previousElementSibling || child.firstChild.id) === "cherries") {
+    //     oneCherry = true;
+    // }
+
+    // if (spinCombos[0] === spinCombos[1] && spinCombos[1] === spinCombos[2]) {
+    //     allThree = true;
+    //     console.log(child.firstChild.id);
+    // } else {
+    //     allThree = false;
+    // }
+    // if (allThree) {
+    //     console.log("ALL THREE!!!!");
+    // }
+
+    console.log(allThree, twoSevens, oneCherry);
+}
+
+
 
 function checkForWin() {
     jackpotMsg.classList.remove("jackpot");
