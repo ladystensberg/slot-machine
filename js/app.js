@@ -64,7 +64,7 @@ function spinSlots() {
         var rand = Math.floor(Math.random() * options.length);
         addSlotsImgs(options[rand], i+1);
     }
-    checkForWin2();
+    checkForWin();
     displayMsgs();
 }
 
@@ -72,52 +72,11 @@ function spinSlots() {
 // add win logic for 2 symbols next to each other giving 1/2 credit
 // try doing win logic checkForWin(pos, symbol).
 
-function checkForWin2() {
-    var allThree = false;
-    var twoSevens = false;
-    var oneCherry = false;
-    var TwoCherries = false;
-    var firstSlot = slotContainer.firstElementChild;
-    var secondSlot = slotContainer.firstElementChild.nextElementSibling;
-    var thirdSlot = slotContainer.lastElementChild;
-
-    var firstSlotImage = firstSlot.firstElementChild.id;
-    var secondSlotImage = secondSlot.firstElementChild.id;
-    var thirdSlotImage = thirdSlot.firstElementChild.id;
-
-    if (firstSlotImage === secondSlotImage && secondSlotImage === thirdSlotImage) {
-        allThree = true;
-        let symbol = thirdSlotImage;
-        allThreeWin(symbol);
-    }
-
-    // for (var i = 0; i < slots.length; i++) {
-    //     if (slots[i].firstChild.id === "cherries") {
-    //         console.log("cherries");
-    //     }
-    // }
-    // if (slotContainer.lastChild.id === (slotContainer.lastChild.previousElementSibling.id && child.firstChild.id)) {
-    //     allThree = true;
-    // } else if ((child.firstChild.id && child.nextElementSibling.id) === "seven") {
-    //     twoSevens = true;
-    // } else if ((child.lastChild.id || child.previousElementSibling || child.firstChild.id) === "cherries") {
-    //     oneCherry = true;
-    // }
-
-    // if (spinCombos[0] === spinCombos[1] && spinCombos[1] === spinCombos[2]) {
-    //     allThree = true;
-    //     console.log(child.firstChild.id);
-    // } else {
-    //     allThree = false;
-    // }
-    // if (allThree) {
-    //     console.log("ALL THREE!!!!");
-    // }
-
-    console.log(allThree, twoSevens, oneCherry);
+function setCredits(number) {
+    credits.totalWin += number;
+    credits.totalCredits += number;
+    credits.lastSpinWin = number;
 }
-
-
 
 function checkForWin() {
     jackpotMsg.classList.remove("jackpot");
@@ -130,47 +89,43 @@ function checkForWin() {
         var symbolToCheck = symbol3;
         switch(symbolToCheck) {
             case "seven":
-                credits.totalWin += 3000;
-                credits.lastSpinWin = 3000;
-                credits.totalCredits += 3000;
+                setCredits(3000);
                 jackpotMsg.classList.add("jackpot");
                 break;
             case "crown":
-                credits.totalWin += 400;
-                credits.lastSpinWin = 400;
-                credits.totalCredits += 400;
+                setCredits(400);
                 break;
             case "diamond":
-                credits.totalWin += 300;
-                credits.lastSpinWin = 300;
-                credits.totalCredits += 300
+                setCredits(300);
                 break;
             case "bell":
-                credits.totalWin += 200;
-                credits.lastSpinWin = 200;
-                credits.totalCredits += 200;
+                setCredits(200);
                 break;
             case "bars":
-                credits.totalWin += 50;
-                credits.lastSpinWin = 50;
-                credits.totalCredits += 50;
+                setCredits(50);
                 break;
             case "cherries":
-                credits.totalWin += 5;
-                credits.lastSpinWin = 5;
-                credits.totalCredits += 5;
+                setCredits(5);
                 break;
         }
     } else if (symbol1 === "cherries" && symbol2 === "cherries" || 
                symbol2 === "cherries" && symbol3 === "cherries" ||
                symbol1 === "cherries" && symbol3 === "cherries") {
-        credits.totalWin += 2;
-        credits.lastSpinWin = 2;
-        credits.totalCredits += 2;
+        setCredits(2)
     } else if (symbol1 === "cherries" || symbol2 === "cherries" || symbol3 === "cherries"){
-        credits.totalWin += 1;
-        credits.lastSpinWin = 1;
-        credits.totalCredits += 1;
+        setCredits(1);
+    } else if (symbol1 === "seven" && symbol2 === "seven") {
+        if (symbol3 === "crown") {
+            setCredits(400);
+        } else if (symbol3 === "diamond") {
+            setCredits(300);
+        } else if (symbol3 === "bell") {
+            setCredits(200);
+        } else if (symbol3 === "bar") {
+            setCredits(50);
+        } else {
+            setCredits(5);
+        }
     }
 }
 
