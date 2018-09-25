@@ -1,8 +1,7 @@
 # Classic Slots
 Classic Slots is a digital take on the classic slot machine. 
 
-![screenshot of project](/home/sunshine/code/slot-machine/screenshot.png  "Classic Slots")![screenshot of project](/home/sunshine/screenshot.png  "Slot Machine")
-
+![screenshot of project](screenshot.png  "Classic Slots")
 ### Technologies Used:
 * HTML
 * CSS
