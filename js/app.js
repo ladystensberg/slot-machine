@@ -7,12 +7,9 @@ const SPIN_COST = 3;
 var totalWin;
 var totalLoss;
 var lastSpinWin;
-var currentSpinWin;
 var totalCredits;
 
 var symbols;
-var winningCombos;
-var spinCombos = [];
 
 /*----- cached element references -----*/
 
@@ -57,7 +54,6 @@ function displayMsgs() {
 }
 
 function spinSlots() {
-    spinCombos = [];
     removeSlotsImgs();
     for (var i = 0; i < 3; i++) {
         var options = Object.keys(symbols);
@@ -135,7 +131,6 @@ function addSlotsImgs(symbol, slot) {
     var image = document.createElement('img');
     image.src = symbols[symbol];
     image.id = symbol;
-    spinCombos.push(symbol);
     newSlot.appendChild(image);
 }
 
@@ -162,7 +157,6 @@ function cashOut() {
     initGame();
 }
 
-
 function initGame() {
 
     if (images.length > 0) {
@@ -173,7 +167,6 @@ function initGame() {
         totalWin: 0,
         totalLoss: 0,
         lastSpinWin: 0,
-        currentSpinWin: 0,
         totalCredits: 500 //change this to zero before deploying!!
     }
 
