@@ -64,7 +64,6 @@ function spinSlots() {
     displayMsgs();
 }
 
-// add win logic for 7s being wild if combined with 2 of the same symbol.
 // add win logic for 2 symbols next to each other giving 1/2 credit
 // try doing win logic checkForWin(pos, symbol).
 

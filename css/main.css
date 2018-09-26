@@ -12,6 +12,10 @@ h1 {
     font-size: 40pt;
 }
 
+#headline {
+    position: relative;
+}
+
 .jackpot {
     animation: blink 1s linear infinite;
 }
@@ -52,15 +56,18 @@ header {
 
 #slot1 {
     grid-area: slot1;
+    background-image: linear-gradient(grey, lightgrey, white, white, lightgrey, grey)
 
 }
 
 #slot2 {
     grid-area: slot2;
+    background-image: linear-gradient(grey, lightgrey, white, white, lightgrey, grey)
 }
 
 #slot3 {
     grid-area: slot3;
+    background-image: linear-gradient(grey, lightgrey, white, white, lightgrey, grey)
 }
 
 #slot4 {
@@ -98,11 +105,11 @@ footer > p > span {
 }
 
 .sideButtons  {
+    margin: 2px;
     background-color: #C5CBE2;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
-    border: 2px solid gold;
 }
 
 .sideButtons > img {
@@ -117,12 +124,11 @@ footer > p > span {
 }
 
 .sideButtons:hover {
-    border: 5px solid gold;
+    border: 2px solid gold;
 }
 
 .slots {
-    background-color: white;
-    border: 2px solid gold;
+    margin: 2px;
     border-radius: 5px;
     overflow: hidden;
 }
