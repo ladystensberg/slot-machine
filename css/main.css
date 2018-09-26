@@ -124,25 +124,21 @@ footer > p > span {
     background-color: white;
     border: 2px solid gold;
     border-radius: 5px;
+    overflow: hidden;
 }
 
 .slots > img {
     padding-top: 60px;
     width: 80%;
-
-}
-
-.animateSlots {
     animation: slideDown 1s;
     position: relative;
-    animation-iteration-count: 10;
 }
 
 @keyframes slideDown {
-    0% {top: -65px;}
+    0% {top: -200px;}
     25% {top: 0px}
     50% {top: 75px}
-    100% {top: 80px;}
+    100% {top: 0px;}
 }
 
 .disabled {
