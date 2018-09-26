@@ -222,6 +222,3 @@ function initGame() {
 }
 
 initGame();
-
-
-

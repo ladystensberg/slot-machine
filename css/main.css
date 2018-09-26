@@ -32,7 +32,6 @@ h1 {
 
 main {
     margin-left: 10px;
-    width: 1000px;
     display: grid;
     grid-template-columns: 200px 200px 200px 200px ;
     grid-template-rows: 458px 100px 100px 100px 80px ;
@@ -155,3 +154,8 @@ footer > p > span {
     cursor: not-allowed;
 }
 
+.credits {
+    font-size: 10pt;
+    display: inline-block;
+    color: white;
+}
