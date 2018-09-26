@@ -137,30 +137,3 @@ footer > p > span {
 .disabled {
     cursor: not-allowed;
 }
-
-/* #fundsSlideOut {
-    display: inline-block;
-}
-
-.fade-in {
-    display: inline-block;
-    height: 100px;
-    width: 1px;
-    opacity: 0;
-    transition: all .75s ease;
-}
-
-.fade-in.show {
-    display: inline-block;
-    opacity: 1;
-    height: 100px;
-    width: 500px;
-    border-radius: 10px;
-  }
-
-.box {
-    display: inline-block;  
-    background: #C5CBE2;
-    margin-bottom: 1em;
-  }
-   */
