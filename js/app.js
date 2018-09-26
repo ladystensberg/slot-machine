@@ -64,9 +64,6 @@ function spinSlots() {
     displayMsgs();
 }
 
-// add win logic for 2 symbols next to each other giving 1/2 credit
-// try doing win logic checkForWin(pos, symbol).
-
 function setCredits(number) {
     credits.totalWin += number;
     credits.totalCredits += number;
@@ -75,12 +72,18 @@ function setCredits(number) {
 
 function checkForWin() {
     jackpotMsg.classList.remove("jackpot");
+    slot1.classList.remove("winningSymbolBorder");
+    slot2.classList.remove("winningSymbolBorder");
+    slot3.classList.remove("winningSymbolBorder");
     let symbol1 = slot1.firstChild.id;
     let symbol2 = slot2.firstChild.id;
     let symbol3 = slot3.firstChild.id;
     credits.totalCredits -= SPIN_COST;
     credits.totalLoss += SPIN_COST;
     if (symbol1 === symbol2 && symbol2 === symbol3) {
+        slot1.classList.add("winningSymbolBorder");
+        slot2.classList.add("winningSymbolBorder");
+        slot3.classList.add("winningSymbolBorder");
         var symbolToCheck = symbol3;
         switch(symbolToCheck) {
             case "seven":
@@ -103,13 +106,27 @@ function checkForWin() {
                 setCredits(5);
                 break;
         }
-    } else if (symbol1 === "cherries" && symbol2 === "cherries" || 
-               symbol2 === "cherries" && symbol3 === "cherries" ||
-               symbol1 === "cherries" && symbol3 === "cherries") {
+    } else if (symbol1 === "cherries" && symbol2 === "cherries") {
         setCredits(2)
+        slot1.classList.add("winningSymbolBorder");
+        slot2.classList.add("winningSymbolBorder");
+    } else if (symbol1 === "cherries" && symbol3 === "cherries") {
+        setCredits(2);
+        slot1.classList.add("winningSymbolBorder");
+        slot3.classList.add("winningSymbolBorder");
     } else if (symbol1 === "cherries" || symbol2 === "cherries" || symbol3 === "cherries"){
         setCredits(1);
+        if (symbol1 === "cherries") {
+            slot1.classList.add("winningSymbolBorder");
+        } else if (symbol2 === "cherries") {
+            slot2.classList.add("winningSymbolBorder");
+        } else {
+            slot3.classList.add("winningSymbolBorder");
+        }
     } else if (symbol1 === "seven" && symbol2 === "seven") {
+        slot1.classList.add("winningSymbolBorder");
+        slot2.classList.add("winningSymbolBorder");
+        slot3.classList.add("winningSymbolBorder");
         if (symbol3 === "crown") {
             setCredits(400);
         } else if (symbol3 === "diamond") {
@@ -118,8 +135,32 @@ function checkForWin() {
             setCredits(200);
         } else if (symbol3 === "bar") {
             setCredits(50);
-        } else {
+        } else if (symbol3 === "cherries") {
             setCredits(5);
+        }
+    } else if (symbol1 === symbol2 && (symbol2 !== symbol3 && symbol2 !== "cherries") && symbol2 !== "seven") {
+        slot1.classList.add("winningSymbolBorder");
+        slot2.classList.add("winningSymbolBorder");
+        if (symbol2 === "crown") {
+            setCredits(200);
+        } else if (symbol2 === "diamond") {
+            setCredits(150);
+        } else if (symbol2 === "bell") {
+            setCredits(100);
+        } else if (symbol2 === "bar") {
+            setCredits(25);
+        }
+    } else if (symbol1 === "bar" && symbol3 === "bar") {
+        slot1.classList.add("winningSymbolBorder");
+        slot3.classList.add("winningSymbolBorder");
+        if (symbol2 === "seven") {
+            setCredits(50);
+        } else if (symbol2 === "crown") {
+            setCredits(100);
+        } else if (symbol2 === "diamond") {
+            setCredits(150);
+        } else if (symbol3 === "bell") {
+            setCredits(50);
         }
     }
 }
@@ -142,8 +183,6 @@ function removeSlotsImgs() {
 }
 
 function addFunds() {
-    // let elem = document.getElementById("fundsSlideOut");
-    // elem.classList.toggle("show");
     var funds = prompt("How many credits do you want to add?");
     credits.totalCredits += parseInt(funds);
     checkForFunds();

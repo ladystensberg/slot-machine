@@ -12,6 +12,10 @@ h1 {
     font-size: 40pt;
 }
 
+.winningSymbolBorder {
+    border: 4px solid gold;
+}
+
 #headline {
     position: relative;
 }
@@ -150,3 +154,4 @@ footer > p > span {
 .disabled {
     cursor: not-allowed;
 }
+
