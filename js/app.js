@@ -70,10 +70,6 @@ function setCredits(number) {
 }
 
 function checkForWin() {
-    jackpotMsg.classList.remove("jackpot");
-    slot1.classList.remove("winningSymbolBorder");
-    slot2.classList.remove("winningSymbolBorder");
-    slot3.classList.remove("winningSymbolBorder");
     let symbol1 = slot1.firstChild.id;
     let symbol2 = slot2.firstChild.id;
     let symbol3 = slot3.firstChild.id;
@@ -165,6 +161,7 @@ function checkForWin() {
 }
 
 function addSlotsImgs(symbol, slot) {
+    removeStylingClasses();
     slot = "slot" + slot;
     var newSlot = document.getElementById(slot);
     var image = document.createElement('img');
@@ -194,12 +191,16 @@ function cashOut() {
     initGame();
 }
 
+function removeStylingClasses() {
+    jackpotMsg.classList.remove("jackpot");
+    slot1.classList.remove("winningSymbolBorder");
+    slot2.classList.remove("winningSymbolBorder");
+    slot3.classList.remove("winningSymbolBorder");
+}
+
 function initGame() {
-
-    if (images.length > 0) {
-        removeSlotsImgs();
-    }
-
+    removeSlotsImgs();
+    removeStylingClasses();
     credits = {
         totalWin: 0,
         totalLoss: 0,
