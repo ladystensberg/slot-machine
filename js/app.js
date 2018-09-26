@@ -8,7 +8,6 @@ var totalWin;
 var totalLoss;
 var lastSpinWin;
 var totalCredits;
-
 var symbols;
 
 /*----- cached element references -----*/
