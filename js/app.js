@@ -23,7 +23,6 @@ var slot2 = document.getElementById("slot2");
 var slot3 = document.getElementById("slot3");
 var slotContainer = document.getElementById("slotContainer");
 var images = slotContainer.getElementsByTagName('img');
-var topBar = document.getElementById("top-bar");
 var winningComboGuide = document.getElementById("winning-combo-guide");
 var addFundsForm = document.getElementById("add-funds-input");
 var cashOutReceipt = document.getElementById("cash-out");
@@ -43,11 +42,7 @@ addFundsButton.addEventListener("click", function() {
     addFundsForm.classList.toggle("toggle-show");
 });
 
-cashOutButton.addEventListener("click", function() {
-    addFundsForm.classList.remove("toggle-show");
-    winningComboGuide.classList.remove("toggle-show");
-    cashOutReceipt.classList.toggle("toggle-show");
-});
+cashOutButton.addEventListener("click", cashOut);
 
 
 
@@ -209,8 +204,12 @@ function addFunds() {
 }
 
 function cashOut() {
-    var receipt = alert(`You won ${credits.totalWin}. 
-    You lost ${credits.totalLoss}. Your cash-out amount is ${credits.totalCredits}`);
+    addFundsForm.classList.remove("toggle-show");
+    winningComboGuide.classList.remove("toggle-show");
+    cashOutReceipt.classList.toggle("toggle-show");
+    document.getElementById("totalCredWin").textContent = credits.totalWin;
+    document.getElementById("totalCredLoss").textContent = credits.totalLoss;
+    document.getElementById("totalCreds").textContent = credits.totalCredits;
     initGame();
 }
 
