@@ -228,7 +228,7 @@ function removeStylingClasses() {
         addFundsForm.classList.remove("toggle-show");
         cashOutReceipt.classList.remove("toggle-show");
         winningComboGuide.classList.remove("toggle-show");
-    }, 2000);
+    }, 3000);
 
 }
 
