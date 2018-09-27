@@ -12,8 +12,69 @@ h1 {
     font-size: 40pt;
 }
 
+h2 {
+    font-size: 20pt;
+    text-shadow: 1px 1px gold;
+    color: white;
+}
+
+#top-bar{
+    cursor: pointer;
+    padding: 10px;
+    right: 10px;
+    top: 0px;
+    position: fixed;
+    background-color:  #C5CBE2;
+    border-radius: 0px 0px 10px 10px;
+}
+
+#top-bar > div {
+    display: none;
+}
+
+table {
+    text-align: left;
+    margin: auto;
+}
+
+td {
+    width: 25%;
+    height: 30px;
+}
+
+td > img {
+    width: 30px;
+    height: 30px;
+}
+
+.column-text {
+    text-align: right;
+    width: 100px;
+}
+
+.column-image {
+    width: 200px;
+    text-align: left;
+}
+
+.toggle-top-bar-style {
+    width: 600px;
+    height: 600px;
+}
+
+.toggle-top-bar-contents {
+    display: inline-block !important;
+}
+
 .winningSymbolBorder {
     border: 4px solid gold;
+}
+
+#winning-combo-guide {
+    padding: 10px;
+    width: 85%;
+    height: 75%;
+    background-color: white;
 }
 
 #headline {

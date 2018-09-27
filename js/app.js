@@ -23,10 +23,16 @@ var slot2 = document.getElementById("slot2");
 var slot3 = document.getElementById("slot3");
 var slotContainer = document.getElementById("slotContainer");
 var images = slotContainer.getElementsByTagName('img');
+var topBar = document.getElementById("top-bar");
+var winningComboGuide = document.getElementById("winning-combo-guide");
 
 /*----- event listeners -----*/
 
 addFundsButton.addEventListener("click", addFunds);
+topBar.addEventListener("click", function() {
+    topBar.classList.toggle("toggle-top-bar-style");
+    winningComboGuide.classList.toggle("toggle-top-bar-contents");
+});
 
 /*----- functions -----*/
 
