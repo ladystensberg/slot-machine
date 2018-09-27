@@ -14,22 +14,38 @@ h1 {
 
 h2 {
     font-size: 20pt;
-    text-shadow: 1px 1px gold;
     color: white;
+    background-color: #C4C6E1;
+    padding: 20px;
 }
 
-#top-bar{
+#helper-image {
+    width: 100px;
+    height: 100px;
     cursor: pointer;
     padding: 10px;
     right: 10px;
     top: 0px;
     position: fixed;
-    background-color:  #C5CBE2;
     border-radius: 0px 0px 10px 10px;
+}
+
+#top-bar {
+    cursor: pointer;
+    padding: 10px;
+    right: 120px;
+    top: 120px;
+    position: fixed;
+    border-radius: 10px;
 }
 
 #top-bar > div {
     display: none;
+}
+
+#helper-image > img {
+    height: 100px;
+    width: 100px;
 }
 
 table {
@@ -60,6 +76,7 @@ td > img {
 .toggle-top-bar-style {
     width: 600px;
     height: 600px;
+    display: inline-block;
 }
 
 .toggle-top-bar-contents {
@@ -71,7 +88,8 @@ td > img {
 }
 
 #winning-combo-guide {
-    padding: 10px;
+    border-radius: 5px;
+    padding: 20px;
     width: 85%;
     height: 75%;
     background-color: white;

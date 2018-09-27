@@ -25,13 +25,18 @@ var slotContainer = document.getElementById("slotContainer");
 var images = slotContainer.getElementsByTagName('img');
 var topBar = document.getElementById("top-bar");
 var winningComboGuide = document.getElementById("winning-combo-guide");
+var addFundsForm = document.getElementById("add-funds-input");
+var helperImage = document.getElementById("helper-image");
 
 /*----- event listeners -----*/
 
-addFundsButton.addEventListener("click", addFunds);
-topBar.addEventListener("click", function() {
+helperImage.addEventListener("click", function() {
     topBar.classList.toggle("toggle-top-bar-style");
     winningComboGuide.classList.toggle("toggle-top-bar-contents");
+});
+
+addFundsButton.addEventListener("click", function() {
+    addFundsForm.classList.toggle("toggle-top-bar-contents");
 });
 
 /*----- functions -----*/
