@@ -26,18 +26,30 @@ var images = slotContainer.getElementsByTagName('img');
 var topBar = document.getElementById("top-bar");
 var winningComboGuide = document.getElementById("winning-combo-guide");
 var addFundsForm = document.getElementById("add-funds-input");
+var cashOutReceipt = document.getElementById("cash-out");
 var helperImage = document.getElementById("helper-image");
 
 /*----- event listeners -----*/
 
 helperImage.addEventListener("click", function() {
-    topBar.classList.toggle("toggle-top-bar-style");
-    winningComboGuide.classList.toggle("toggle-top-bar-contents");
+    addFundsForm.classList.remove("toggle-show");
+    cashOutReceipt.classList.remove("toggle-show");
+    winningComboGuide.classList.toggle("toggle-show");
 });
 
 addFundsButton.addEventListener("click", function() {
-    addFundsForm.classList.toggle("toggle-top-bar-contents");
+    cashOutReceipt.classList.remove("toggle-show");
+    winningComboGuide.classList.remove("toggle-show");
+    addFundsForm.classList.toggle("toggle-show");
 });
+
+cashOutButton.addEventListener("click", function() {
+    addFundsForm.classList.remove("toggle-show");
+    winningComboGuide.classList.remove("toggle-show");
+    cashOutReceipt.classList.toggle("toggle-show");
+});
+
+
 
 /*----- functions -----*/
 
