@@ -3,6 +3,8 @@ body {
     background-attachment: fixed;
     background-size: cover;
     text-align: center;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 2px;
 }
 
 input, button, submit { 
@@ -25,6 +27,60 @@ h2 {
     background-color: #C4C6E1;
     padding: 20px;
 }
+
+table {
+    text-align: left;
+    margin: auto;
+}
+
+td {
+    width: 25%;
+    height: 30px;
+}
+
+td > img {
+    width: 30px;
+    height: 30px;
+}
+
+main {
+    margin-left: 10px;
+    display: grid;
+    grid-template-columns: 200px 200px 200px 200px ;
+    grid-template-rows: 458px 100px 100px 100px 80px ;
+    grid-template-areas: "header header header header"
+                         "slotContain slotContain slotContain addFunds"
+                         "slotContain slotContain slotContain cashOut"
+                         "slotContain slotContain slotContain spinSlots"
+                         "footer footer footer footer"
+}
+
+header {
+    grid-area: header;
+    background-color: grey;
+    background: url("../img/slot-top.svg") no-repeat center;
+    background-size: cover;
+}
+
+footer {
+    grid-area: footer;
+    background-color: #ADB4D1;
+    border-radius: 10px;
+}
+
+footer > p {
+    display: inline-block;
+    font-size: 20pt;
+    margin-right: 60px;
+    color: white;
+}
+
+footer > p > span {
+    font-size: 22pt;
+    text-shadow: 1px 1px gold;
+}
+
+
 
 #helper-image {
     width: 100px;
@@ -55,39 +111,6 @@ h2 {
     width: 100px;
 }
 
-table {
-    text-align: left;
-    margin: auto;
-}
-
-td {
-    width: 25%;
-    height: 30px;
-}
-
-td > img {
-    width: 30px;
-    height: 30px;
-}
-
-.column-text {
-    text-align: right;
-    width: 100px;
-}
-
-.column-image {
-    width: 200px;
-    text-align: left;
-}
-
-.toggle-show {
-    display: inline-block !important; 
-}
-
-.winningSymbolBorder {
-    border: 4px solid gold;
-}
-
 #add-funds-input {
     border-radius: 5px;
     padding: 20px;
@@ -114,35 +137,6 @@ td > img {
 
 #headline {
     position: relative;
-}
-
-.jackpot {
-    animation: blink 1s linear infinite;
-}
-
-@keyframes blink {
-    0%{opacity: 0;}
-    50%{opacity: .5;}
-    100%{opacity: 1;}
-}
-
-main {
-    margin-left: 10px;
-    display: grid;
-    grid-template-columns: 200px 200px 200px 200px ;
-    grid-template-rows: 458px 100px 100px 100px 80px ;
-    grid-template-areas: "header header header header"
-                         "slotContain slotContain slotContain addFunds"
-                         "slotContain slotContain slotContain cashOut"
-                         "slotContain slotContain slotContain spinSlots"
-                         "footer footer footer footer"
-}
-
-header {
-    grid-area: header;
-    background-color: grey;
-    background: url("../img/slot-top.svg") no-repeat center;
-    background-size: cover;
 }
 
 #slotContainer {
@@ -185,22 +179,14 @@ header {
     grid-area: spinSlots;
 }
 
-footer {
-    grid-area: footer;
-    background-color: #ADB4D1;
-    border-radius: 10px;
+.jackpot {
+    animation: blink 1s linear infinite;
 }
 
-footer > p {
-    display: inline-block;
-    font-size: 20pt;
-    margin-right: 60px;
-    color: white;
-}
-
-footer > p > span {
-    font-size: 22pt;
-    text-shadow: 1px 1px gold;
+@keyframes blink {
+    0%{opacity: 0;}
+    50%{opacity: .5;}
+    100%{opacity: 1;}
 }
 
 .sideButtons  {
@@ -254,4 +240,22 @@ footer > p > span {
     font-size: 10pt;
     display: inline-block;
     color: white;
+}
+
+.column-text {
+    text-align: right;
+    width: 100px;
+}
+
+.column-image {
+    width: 200px;
+    text-align: left;
+}
+
+.toggle-show {
+    display: inline-block !important; 
+}
+
+.winningSymbolBorder {
+    border: 4px solid gold;
 }
