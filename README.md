@@ -9,7 +9,7 @@ Classic Slots is a digital take on the classic slot machine.
 
 ### Getting Started:
 
-To play, visit: [Classic Slots](https://github.com/ladystensberg/slot-machine) 
+To play, visit: [Classic Slots](https://ladystensberg.github.io/slot-machine/)
 
 ### License:
 
