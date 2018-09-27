@@ -27,6 +27,8 @@ var winningComboGuide = document.getElementById("winning-combo-guide");
 var addFundsForm = document.getElementById("add-funds-input");
 var cashOutReceipt = document.getElementById("cash-out");
 var helperImage = document.getElementById("helper-image");
+var inputFunds = document.querySelector("input");
+var inputFundsButton = document.querySelector("button");
 
 /*----- event listeners -----*/
 
@@ -36,14 +38,11 @@ helperImage.addEventListener("click", function() {
     winningComboGuide.classList.toggle("toggle-show");
 });
 
-addFundsButton.addEventListener("click", function() {
-    cashOutReceipt.classList.remove("toggle-show");
-    winningComboGuide.classList.remove("toggle-show");
-    addFundsForm.classList.toggle("toggle-show");
-});
+addFundsButton.addEventListener("click", addFundsToggle);
 
 cashOutButton.addEventListener("click", cashOut);
 
+inputFundsButton.addEventListener("click", addFunds);
 
 
 /*----- functions -----*/
@@ -196,9 +195,18 @@ function removeSlotsImgs() {
     }
 }
 
+
+
+function addFundsToggle() {
+    cashOutReceipt.classList.remove("toggle-show");
+    winningComboGuide.classList.remove("toggle-show");
+    addFundsForm.classList.toggle("toggle-show");
+}
+
 function addFunds() {
-    var funds = prompt("How many credits do you want to add?");
-    credits.totalCredits += parseInt(funds);
+    var inputVal = inputFunds.value;
+    credits.totalCredits += parseFloat(inputVal);
+    inputFunds.value = "";
     checkForFunds();
     displayMsgs();
 }
