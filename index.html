@@ -9,7 +9,7 @@
     <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div id="helper-div"><img src="img/help.png" id="helper-image"></div>
+    <div id="helper-div"><img src="img/help.png" id="helper-image" alt="helper"></div>
     <section id="top-bar">
         <div id="winning-combo-guide">
             <h2>Combo Win Guide</h2>
@@ -21,45 +21,47 @@
                     <th class="column-text"></th>
                 </tr>
                 <tr>
-                    <td><img src="img/symbols/seven.svg"><img src="img/symbols/seven.svg"></td>
+                    <td><img src="img/symbols/seven.svg" alt="seven"><img src="img/symbols/seven.svg" alt="seven"></td>
                     <td>WILD</td>
-                    <td><img src="img/symbols/seven.svg"><img src="img/symbols/seven.svg"><img src="img/symbols/seven.svg"></td>
+                    <td><img src="img/symbols/seven.svg" alt="seven"><img src="img/symbols/seven.svg" alt="seven"><img src="img/symbols/seven.svg" alt="seven"></td>
                     <td>3000 cr.</td>
                 </tr>
 
                 <tr>
-                    <td><img src="img/symbols/crown.svg"><img src="img/symbols/crown.svg"><img src="img/symbols/crown.svg"></td>
+                    <td><img src="img/symbols/crown.svg" alt="crown"><img src="img/symbols/crown.svg" alt="crown"><img src="img/symbols/crown.svg" alt="crown"></td>
                     <td>400 cr.</td>
-                    <td><img src="img/symbols/crown.svg"><img src="img/symbols/crown.svg"></td>
+                    <td><img src="img/symbols/crown.svg" alt="crown"><img src="img/symbols/crown.svg" alt="crown"></td>
                     <td>200 cr.</td>
                 </tr>
                 <tr>
-                    <td><img src="img/symbols/diamond.svg"><img src="img/symbols/diamond.svg"><img src="img/symbols/diamond.svg"></td>
+                    <td><img src="img/symbols/diamond.svg" alt="diamond"><img src="img/symbols/diamond.svg" alt="diamond"><img src="img/symbols/diamond.svg" alt="diamond"></td>
                     <td>300 cr.</td>
-                    <td><img src="img/symbols/diamond.svg"><img src="img/symbols/diamond.svg"></td>
+                    <td><img src="img/symbols/diamond.svg" alt="diamond"><img src="img/symbols/diamond.svg" alt="diamond"></td>
                     <td>150 cr.</td>
                 </tr>
                 <tr>
-                    <td><img src="img/symbols/bell.svg"><img src="img/symbols/bell.svg"><img src="img/symbols/bell.svg"></td>
+                    <td><img src="img/symbols/bell.svg" alt="bell"><img src="img/symbols/bell.svg" alt="bell"><img src="img/symbols/bell.svg" alt="bell"></td>
                     <td>200 cr.</td>
-                    <td><img src="img/symbols/bell.svg"><img src="img/symbols/bell.svg"></td>
+                    <td><img src="img/symbols/bell.svg" alt="bell"><img src="img/symbols/bell.svg" alt="bell"></td>
                     <td>100 cr.</td>
                 </tr>
                 <tr>
-                    <td><img src="img/symbols/bars.svg"><img src="img/symbols/bars.svg"><img src="img/symbols/bars.svg"></td>
+                    <td><img src="img/symbols/bars.svg" alt="bars"><img src="img/symbols/bars.svg" alt="bars"><img src="img/symbols/bars.svg" alt="bars"></td>
                     <td>50 cr.</td>
-                    <td><img src="img/symbols/bars.svg"><img src="img/symbols/bars.svg"></td>
+                    <td><img src="img/symbols/bars.svg" alt="bars"><img src="img/symbols/bars.svg" alt="bars"></td>
                     <td>25 cr.</td>
                 </tr>
                 <tr>
-                    <td><img src="img/symbols/cherries.svg"><img src="img/symbols/cherries.svg"><img src="img/symbols/cherries.svg"></td>
+                    <td><img src="img/symbols/cherries.svg" alt="cherries"><img src="img/symbols/cherries.svg" alt="cherries"><img src="img/symbols/cherries.svg" alt="cherries"></td>
                     <td>5 cr.</td>
-                    <td><img src="img/symbols/cherries.svg"><img src="img/symbols/cherries.svg"></td>
+                    <td><img src="img/symbols/cherries.svg" alt="cherries"><img src="img/symbols/cherries.svg" alt="cherries"></td>
                     <td>2 cr.</td>
                 </tr>
                 <tr>
-                    <td><img src="img/symbols/cherries.svg"></td>
+                    <td><img src="img/symbols/cherries.svg" alt="cherries"></td>
                     <td>1 cr.</td>
+                    <td></td>
+                    <td></td>
                 </tr>
             </table>
         </div>
@@ -76,18 +78,18 @@
     </section>
     <main>
         <header><h1 id="headline">JACKPOT</h1></header>
-        <section id="slotContainer">
+        <div id="slotContainer">
             <div id="slot1" class="slots"></div>
             <div id="slot2" class="slots"></div>
             <div id="slot3" class="slots"></div>
-        </section>
+        </div>
         <div id="addFunds" class="sideButtons">
-            <img src="img/coin.svg">
+            <img src="img/coin.svg" alt="coin-side-button">
             <p>Add Funds</p>
             <div id="fundsSlideOut" class="box fade-in"></div>
         </div>
-        <div id="cashOut" class="sideButtons"><img src="img/cash-stack.svg"><p>Cash Out</p></div>
-        <div id="spinSlots" class="sideButtons"><img src="img/slot-machine.svg"><p>Spin</p></div>
+        <div id="cashOut" class="sideButtons"><img src="img/cash-stack.svg" alt="cash-stack-side-button"><p>Cash Out</p></div>
+        <div id="spinSlots" class="sideButtons"><img src="img/slot-machine.svg" alt="slot-machine-side-button"><p>Spin</p></div>
         <footer>
             <p>Total Credits: <span id="totalCreditsMsg"></span></p>
             <p>Last Spin Win Amount: <span id="lastSpinWinMsg"></span></p>

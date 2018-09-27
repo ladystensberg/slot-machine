@@ -22,7 +22,7 @@ var slot1 = document.getElementById("slot1");
 var slot2 = document.getElementById("slot2");
 var slot3 = document.getElementById("slot3");
 var slotContainer = document.getElementById("slotContainer");
-var images = slotContainer.getElementsByTagName('img');
+var images = slotContainer.getElementsByTagName("img");
 var winningComboGuide = document.getElementById("winning-combo-guide");
 var addFundsForm = document.getElementById("add-funds-input");
 var cashOutReceipt = document.getElementById("cash-out");
@@ -50,12 +50,12 @@ inputFundsButton.addEventListener("click", addFunds);
 function checkForFunds() {
     if (credits.totalCredits < 3) {
         cashOutButton.removeEventListener("click", cashOut);
-        spinSlotsButton.removeEventListener("click", spinSlots); 
+        spinSlotsButton.removeEventListener("click", spinSlots);
         cashOutButton.classList.add("disabled");
         spinSlotsButton.classList.add("disabled");
     } else {
         cashOutButton.addEventListener("click", cashOut);
-        spinSlotsButton.addEventListener("click", spinSlots);  
+        spinSlotsButton.addEventListener("click", spinSlots);
         cashOutButton.classList.remove("disabled");
         spinSlotsButton.classList.remove("disabled");
     }
@@ -64,7 +64,6 @@ function checkForFunds() {
 function displayMsgs() {
     var totalCreds = credits.totalCredits;
     totalCreditsMsg.textContent = totalCreds;
-    
     var lastWinCreds = credits.lastSpinWin;
     lastWinCreditMsg.textContent = lastWinCreds;
 }
@@ -126,7 +125,7 @@ function checkForWin() {
         setCredits(2);
         slot1.classList.add("winningSymbolBorder");
         slot3.classList.add("winningSymbolBorder");
-    } else if (symbol1 === "cherries" || symbol2 === "cherries" || symbol3 === "cherries"){
+    } else if (symbol1 === "cherries" || symbol2 === "cherries" || symbol3 === "cherries") {
         setCredits(1);
         if (symbol1 === "cherries") {
             slot1.classList.add("winningSymbolBorder");
@@ -181,7 +180,7 @@ function addSlotsImgs(symbol, slot) {
     removeStylingClasses();
     slot = "slot" + slot;
     var newSlot = document.getElementById(slot);
-    var image = document.createElement('img');
+    var image = document.createElement("img");
     image.src = symbols[symbol];
     image.id = symbol;
     newSlot.appendChild(image);
@@ -195,8 +194,6 @@ function removeSlotsImgs() {
     }
 }
 
-
-
 function addFundsToggle() {
     cashOutReceipt.classList.remove("toggle-show");
     winningComboGuide.classList.remove("toggle-show");
@@ -209,6 +206,7 @@ function addFunds() {
     inputFunds.value = "";
     checkForFunds();
     displayMsgs();
+    addFundsForm.classList.remove("toggle-show");
 }
 
 function cashOut() {
@@ -226,6 +224,12 @@ function removeStylingClasses() {
     slot1.classList.remove("winningSymbolBorder");
     slot2.classList.remove("winningSymbolBorder");
     slot3.classList.remove("winningSymbolBorder");
+    setTimeout(function() {
+        addFundsForm.classList.remove("toggle-show");
+        cashOutReceipt.classList.remove("toggle-show");
+        winningComboGuide.classList.remove("toggle-show");
+    }, 2000);
+
 }
 
 function initGame() {
@@ -235,7 +239,7 @@ function initGame() {
         totalWin: 0,
         totalLoss: 0,
         lastSpinWin: 0,
-        totalCredits: 500 //change this to zero before deploying!!
+        totalCredits: 0
     }
 
     symbols = {
