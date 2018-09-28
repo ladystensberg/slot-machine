@@ -13,19 +13,19 @@ var symbols;
 /*----- cached element references -----*/
 
 var jackpotMsg = document.getElementById("headline");
-var addFundsButton = document.getElementById("addFunds");
-var cashOutButton = document.getElementById("cashOut");
-var spinSlotsButton = document.getElementById("spinSlots");
-var totalCreditsMsg = document.querySelector("#totalCreditsMsg");
-var lastWinCreditMsg = document.querySelector("#lastSpinWinMsg");
+var addFundsButton = document.getElementById("add-funds-side-button");
+var cashOutButton = document.getElementById("cash-out-side-button");
+var spinSlotsButton = document.getElementById("spin-slots-side-button");
+var totalCreditsMsg = document.querySelector("#total-creds-msg");
+var lastWinCreditMsg = document.querySelector("#last-win-msg");
 var slot1 = document.getElementById("slot1");
 var slot2 = document.getElementById("slot2");
 var slot3 = document.getElementById("slot3");
-var slotContainer = document.getElementById("slotContainer");
+var slotContainer = document.getElementById("slot-container");
 var images = slotContainer.getElementsByTagName("img");
 var winningComboGuide = document.getElementById("winning-combo-guide");
 var addFundsForm = document.getElementById("add-funds-input");
-var cashOutReceipt = document.getElementById("cash-out");
+var cashOutReceipt = document.getElementById("cash-out-receipt");
 var helperImage = document.getElementById("helper-image");
 var inputFunds = document.querySelector("input");
 var inputFundsButton = document.querySelector("button");
@@ -213,9 +213,9 @@ function cashOut() {
     addFundsForm.classList.remove("toggle-show");
     winningComboGuide.classList.remove("toggle-show");
     cashOutReceipt.classList.toggle("toggle-show");
-    document.getElementById("totalCredWin").textContent = credits.totalWin;
-    document.getElementById("totalCredLoss").textContent = credits.totalLoss;
-    document.getElementById("totalCreds").textContent = credits.totalCredits;
+    document.getElementById("total-cred-win").textContent = credits.totalWin;
+    document.getElementById("total-cred-loss").textContent = credits.totalLoss;
+    document.getElementById("total-creds").textContent = credits.totalCredits;
     initGame();
 }
 

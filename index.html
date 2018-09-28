@@ -69,30 +69,30 @@
             <h2>Add Funds - How Much?</h2>
             <input type="text" id="input-funds"><button type="submit" id="add-funds-button">SUBMIT</button>
         </div>
-        <div id="cash-out">
+        <div id="cash-out-receipt">
             <h2>Cash Out - Receipt</h2>
-            <h3>Total Won: <span id="totalCredWin"></span></h3>
-            <h3>Total Loss: <span id="totalCredLoss"></span></h3>
-            <h3>Total Credits: <span id="totalCreds"></span></h3>
+            <h3>Total Won: <span id="total-cred-win"></span></h3>
+            <h3>Total Loss: <span id="total-cred-loss"></span></h3>
+            <h3>Total Credits: <span id="total-creds"></span></h3>
         </div>
     </section>
     <main>
         <header><h1 id="headline">JACKPOT</h1></header>
-        <div id="slotContainer">
+        <div id="slot-container">
             <div id="slot1" class="slots"></div>
             <div id="slot2" class="slots"></div>
             <div id="slot3" class="slots"></div>
         </div>
-        <div id="addFunds" class="sideButtons">
+        <div id="add-funds-side-button" class="side-buttons">
             <img src="img/coin.svg" alt="coin-side-button">
             <p>Add Funds</p>
             <div id="fundsSlideOut" class="box fade-in"></div>
         </div>
-        <div id="cashOut" class="sideButtons"><img src="img/cash-stack.svg" alt="cash-stack-side-button"><p>Cash Out</p></div>
-        <div id="spinSlots" class="sideButtons"><img src="img/slot-machine.svg" alt="slot-machine-side-button"><p>Spin</p></div>
+        <div id="cash-out-side-button" class="side-buttons"><img src="img/cash-stack.svg" alt="cash-stack-side-button"><p>Cash Out</p></div>
+        <div id="spin-slots-side-button" class="side-buttons"><img src="img/slot-machine.svg" alt="slot-machine-side-button"><p>Spin</p></div>
         <footer>
-            <p>Total Credits: <span id="totalCreditsMsg"></span></p>
-            <p>Last Spin Win Amount: <span id="lastSpinWinMsg"></span></p>
+            <p>Total Credits: <span id="total-creds-msg"></span></p>
+            <p>Last Spin Win Amount: <span id="last-win-msg"></span></p>
         </footer>
     </main>
     <script src="js/app.js"></script>
